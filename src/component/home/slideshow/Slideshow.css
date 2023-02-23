@@ -1,0 +1,27 @@
+#slideshow {
+    position: relative;
+    display: flex;
+    /* width: 100%; */
+    margin: 50px 0;
+    box-shadow: 0 0 2rem #00000085;
+    border: 10px solid #f0f0f0;
+}
+
+#slideshow-blank {
+    width: 100%;
+    /* margin: 50px 0;
+    box-shadow: 0 0 2rem #00000085;
+    border: 10px solid #e0d7d2; */
+}
+
+#slideshow .slide {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#slideshow .active {
+    display: block;
+}
