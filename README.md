@@ -1,7 +1,5 @@
-# Anthony DePaul Masonry Inc. Website
+# [anthonydepaulmasonryinc.com](https://anthonydepaulmasonryinc.com)
 
-Link: [anthonydepaulmasonryinc.com](https://anthonydepaulmasonryinc.com/)
+Run dev server: `npm run dev`
 
-## Copyright
-
-Copyright © 2022 Anthony DePaul Masonry Inc.
+Update oss attribution: `npx oss-attribution-generator generate-attribution`
