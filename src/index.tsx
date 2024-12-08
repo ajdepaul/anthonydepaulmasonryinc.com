@@ -1,14 +1,14 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import GlobalStyle from './GlobalStyle';
 import Copyright from './component/Copyright';
 import styled from 'styled-components';
 
-const Home = lazy(() => import('./pages/Home'))
-const About = lazy(() => import('./pages/Work'))
-const Contact = lazy(() => import('./pages/Contact'))
-const NotFound = lazy(() => import('./pages/NotFound'))
+const Home = React.lazy(() => import('./pages/Home'))
+const About = React.lazy(() => import('./pages/Work'))
+const Contact = React.lazy(() => import('./pages/Contact'))
+const NotFound = React.lazy(() => import('./pages/NotFound'))
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -40,12 +40,12 @@ const StyledDiv = styled.div`
 
 function Wrapper() {
   return (
-    <Suspense>
+    <React.Suspense>
       <GlobalStyle />
       <StyledDiv>
         <Outlet />
         <Copyright />
       </StyledDiv>
-    </Suspense>
+    </React.Suspense>
   )
 }

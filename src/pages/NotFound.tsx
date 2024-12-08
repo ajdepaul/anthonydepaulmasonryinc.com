@@ -1,21 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import { H1 } from '../component/Header';
-import Section from '../component/Section';
 const BgImg = require('./home/title-bg.png')
 
-const StyledSection = styled(Section)`
+const Section = styled.section`
   background-image: url(${BgImg});
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   background-size: cover;
+  text-align: center;
+
+  div {
+    background-color: #0000009a;
+    padding: 50px;
+    max-width: 90%;
+    max-height: 90%;
+
+    h1 {
+      color: var(--gold);
+    }
+  }
 `
 
 export default function Contact() {
   return (
-    <StyledSection>
-      <H1>404 Page Not Found</H1>
-    </StyledSection>
+    <Section>
+      <div>
+        <h1>- 404 -</h1>
+        <h2>Page Not Found</h2>
+      </div>
+    </Section>
   )
 }

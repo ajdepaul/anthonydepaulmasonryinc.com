@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Content from './Content';
-import Section from './Section';
 
-const StyledSection = styled(Section)`
+const Section = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--light-gray);
-  color: var(--dark-gray-text);
+  color: var(--dark-gray);
   font-size: 0.75rem;
   line-height: 0.75rem;
   padding: 0.5rem;
@@ -16,8 +14,8 @@ const StyledSection = styled(Section)`
 
 export default function Copyright() {
   return (
-    <StyledSection>
+    <Section>
       Copyright © 2022 Anthony DePaul Masonry Inc.
-    </StyledSection>
+    </Section>
   )
 }
