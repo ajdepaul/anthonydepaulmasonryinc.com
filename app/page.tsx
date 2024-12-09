@@ -23,7 +23,7 @@ export default async function HomePage() {
       />
 
       {/* about */}
-      <Section className="flex flex-col items-center gap-y-8 pb-20">
+      <Section className="flex flex-col items-center md:gap-y-8 gap-y-4 pb-20">
         <Nav page="home" />
         <Slideshow images={slideShowImages} />
         <H level="3" className="text-3xl">- About -</H>
@@ -70,8 +70,8 @@ export default async function HomePage() {
           url('/images/${data.exploreBg && data.images[data.exploreBg].filename}')`
         }}
       >
-        <Section className="grid grid-cols-2 gap-32 py-32">
-          <div className="h-full pb-64">
+        <Section className="md:grid md:grid-cols-2 flex flex-col md:gap-32 gap-16 md:py-32 py-16">
+          <div className="h-full md:pb-64">
             <div className="flex flex-col items-center gap-5 bg-theme-dark-gray text-white shadow-lg p-8 rounded-lg">
               <H level="3" className="text-3xl">- Our Work -</H>
               <p>
@@ -83,7 +83,7 @@ export default async function HomePage() {
               <Link href="/gallery" className={twMerge(buttonVariants(), 'border-theme-gold text-theme-gold hover:bg-theme-light-gray/25')}>Gallery</Link>
             </div>
           </div>
-          <div className="h-full pt-64">
+          <div className="h-full md:pt-64">
             <div className="flex flex-col items-center gap-5 bg-theme-dark-gray text-white shadow-lg p-8 rounded-lg">
               <H level="3" className="text-3xl">- Free Estimates -</H>
               <p>

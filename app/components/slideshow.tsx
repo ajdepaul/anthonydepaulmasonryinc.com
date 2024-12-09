@@ -45,42 +45,44 @@ const Slideshow: React.FC<{ images: ImageData[] }> = ({ images }) => {
       onMouseLeave={() => { setPaused(false); autoplay?.start(); }}
       className="relative w-full border-8 border-white bg-theme-dark-gray shadow-xl"
     >
-      <Swiper
-        spaceBetween={16}
-        loop={type === 'featured'}
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation={true}
-        pagination={type === 'featured' && { clickable: true }}
-        autoplay={type === 'featured' ? { delay: 5 * 1000 } : undefined}
-        onSwiper={(s) => {
-          setSwiper(s);
-          if (autoplay) { setAutoplay(s.autoplay); }
-        }}
-      >
-        {
-          images.map((image, index) => {
-            const mainAltText = `Slideshow image ${index}`;
-            const nameAltText = image.name ? `; Image name: ${image.name}` : ''
-            const descriptionAltText = image.description ? `; Image description: ${image.description}` : '';
-            return (
-              <SwiperSlide key={image.filename} className="flex items-center justify-center">
-                <div className="h-[25rem] bg-theme-dark-gray text-white">
-                  <Image
-                    src={`/images/${image.filename}`}
-                    placeholder={'blur'}
-                    blurDataURL={image.placeholder}
-                    alt={`${mainAltText}${nameAltText}${descriptionAltText}`}
-                    priority={false}
-                    sizes=""
-                    fill
-                    className='object-contain'
-                  />
-                </div>
-              </SwiperSlide>
-            );
-          })
-        }
-      </Swiper>
+      <div>
+        <Swiper
+          spaceBetween={16}
+          loop={type === 'featured'}
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation={true}
+          pagination={type === 'featured' && { clickable: true }}
+          autoplay={type === 'featured' ? { delay: 5 * 1000 } : undefined}
+          onSwiper={(s) => {
+            setSwiper(s);
+            if (autoplay) { setAutoplay(s.autoplay); }
+          }}
+        >
+          {
+            images.map((image, index) => {
+              const mainAltText = `Slideshow image ${index}`;
+              const nameAltText = image.name ? `; Image name: ${image.name}` : ''
+              const descriptionAltText = image.description ? `; Image description: ${image.description}` : '';
+              return (
+                <SwiperSlide key={image.filename} className="flex items-center justify-center">
+                  <div className="md:h-[25rem] h-[20rem] bg-theme-dark-gray text-white">
+                    <Image
+                      src={`/images/${image.filename}`}
+                      placeholder={'blur'}
+                      blurDataURL={image.placeholder}
+                      alt={`${mainAltText}${nameAltText}${descriptionAltText}`}
+                      priority={false}
+                      sizes=""
+                      fill
+                      className='object-contain'
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })
+          }
+        </Swiper>
+      </div>
       {
         type === 'featured' && (
           <div className="absolute bottom-0 right-0 text-xl text-white z-40 m-2 bg-black/50 px-2 py-1 rounded">
@@ -92,12 +94,12 @@ const Slideshow: React.FC<{ images: ImageData[] }> = ({ images }) => {
         type === 'gallery' && (
           <div className={`flex flex-col items-stretch bg-white gap-y-4 ${(imageName || imageDescription) ? 'pt-4' : ''}`}>
             {imageName && (
-              <H level="3" className="text-center text-3xl">
+              <H level="3" className="text-center md:text-3xl sm:text-2xl text-xl">
                 {imageName}
               </H>
             )}
             {imageDescription && (
-              <p className="p-2 h-28 overflow-y-scroll border-y border-theme-dark-gray/50">
+              <p className="p-2 h-28 overflow-y-scroll border-y border-theme-dark-gray/50 md:text-lg text-base">
                 {imageDescription}
               </p>
             )}

@@ -18,8 +18,7 @@ export default async function ContactPage() {
       />
       <Section outerClassname="grow" className="flex flex-col items-center gap-y-8 pb-20">
         <Nav page="contact" />
-        <Container className="self-stretch grid grid-cols-2 gap-8 p-8">
-          {/* <div className="grid grid-cols-2 gap-4"> */}
+        <Container className="self-stretch grid sm:grid-cols-2 gap-8 p-8">
           <div className="h-full flex items-center">
             <p>
               Have questions or want to discuss your next project? Please fill out the contact form

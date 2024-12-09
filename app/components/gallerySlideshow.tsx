@@ -53,7 +53,7 @@ const GalleryContent: React.FC<{ images: ImageData[] }> = ({ images }) => {
   return (
     <>
       <Slideshow images={images} />
-      <div className="w-full grid grid-cols-4 gap-4">
+      <div className="w-full grid md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4">
         {
           images.map((image, index) => {
             const mainAltText = `Slideshow image ${index}`;

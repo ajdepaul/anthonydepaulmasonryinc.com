@@ -3,7 +3,7 @@ import { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
 const sectionVariants = cva(
-  'grow max-w-screen-lg sm:px-8 flex flex-col items-center',
+  'grow w-full max-w-screen-lg px-4 sm:px-8 flex flex-col items-center',
   {
     variants: {},
     defaultVariants: {}

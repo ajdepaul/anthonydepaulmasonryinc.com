@@ -4,7 +4,7 @@ import { HTMLAttributes } from "react";
 import { twMerge } from "tailwind-merge";
 
 const navVariants = cva(
-  'w-full flex justify-between text-white text-4xl',
+  'w-full flex justify-between text-white md:text-4xl sm:text-3xl text-2xl px-4',
   {
     variants: {},
     defaultVariants: {}
