@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
 
 export default async function HomePage() {
-  const data = getData();
+  const data = await getData();
   const slideShowImages = data.featuredImages.map((id) => data.images[id]);
 
   return (

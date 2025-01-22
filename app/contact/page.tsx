@@ -8,7 +8,7 @@ import { getData } from "@/app/util/data";
 import Link from "next/link";
 
 export default async function ContactPage() {
-  const data = getData();
+  const data = await getData();
   return (
     <>
       <TitleSection

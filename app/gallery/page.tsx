@@ -5,7 +5,7 @@ import Section from "@/app/components/ui/section";
 import { getData } from "@/app/util/data";
 
 export default async function GalleryPage() {
-  const data = getData();
+  const data = await getData();
   const galleryImages = data.publishedImages.map((id) => data.images[id]);
 
   return (

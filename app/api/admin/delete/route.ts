@@ -12,7 +12,7 @@ export async function DELETE(request: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ message: 'Bad request format' }, { status: 400 });
   }
 
-  const data = getData();
+  const data = await getData();
 
   if (!data.images[id]) {
     return NextResponse.json({ message: 'Image not found' }, { status: 404 });

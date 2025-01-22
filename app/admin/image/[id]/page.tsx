@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 
 export default async function ImagePage({ params }: { params: Promise<{ id: string }> }) {
   const id = (await params).id;
-  const data = getData();
+  const data = await getData();
   const imageData = data.images[id];
   if (imageData === undefined) { notFound(); }
 

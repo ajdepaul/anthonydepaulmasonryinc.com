@@ -14,7 +14,7 @@ const AdminPage: React.FC = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const data = getData();
+  const data = await getData();
   const titleBgImage = data.titleBg ? data.images[data.titleBg] : undefined;
   const exploreBgImage = data.exploreBg ? data.images[data.exploreBg] : undefined;
 

@@ -23,7 +23,7 @@ export async function listUpdateHandler(request: NextRequest, list: 'featured' |
   const index1 = parseInt(index1Str);
   const index2 = parseInt(index2Str);
 
-  const data = getData();
+  const data = await getData();
   const listToUpdate = list === 'featured' ? data.featuredImages : data.publishedImages;
 
   if (listToUpdate.length <= index1 || listToUpdate.length <= index2) {

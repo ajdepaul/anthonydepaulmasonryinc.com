@@ -1,5 +1,5 @@
-import data from '@/data.json';
-import { writeFile } from 'fs/promises';
+import { Mutex } from 'async-mutex';
+import fs from 'fs/promises';
 import { z } from 'zod';
 
 export type ImageData = {
@@ -47,19 +47,22 @@ const dataSchema = z.object({
 });
 
 let loadedData: Data | null;
+const dataMutex = new Mutex();
 
-function getData(): Data {
-  if (loadedData) {
+async function getData(skipExclusive: boolean = false): Promise<Data> {
+  const getResult = async () => {
+    if (loadedData) { return loadedData; }
+    loadedData = dataSchema.parse(JSON.parse(await fs.readFile('data.json', 'utf-8')));
     return loadedData;
-  }
-  loadedData = dataSchema.parse(data);
-  return loadedData;
+  };
+  return skipExclusive ? getResult() : dataMutex.runExclusive(getResult);
 }
 
 async function mutateData(mutation: (data: Data) => Data) {
-  const data = getData();
-  loadedData = dataSchema.parse(mutation(data));
-  await writeFile('data.json', JSON.stringify(loadedData));
+  await dataMutex.runExclusive(async () => {
+    loadedData = mutation(await getData(true));
+    await fs.writeFile('data.json', JSON.stringify(loadedData));
+  })
 }
 
 export { getData, mutateData };
