@@ -12,7 +12,7 @@ import { IoWarning } from 'react-icons/io5';
 
 const AdminPage: React.FC = async () => {
   const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  const user = await getUser() ?? { email: 'demo' };
 
   const data = await getData();
   const titleBgImage = data.titleBg ? data.images[data.titleBg] : undefined;
