@@ -13,7 +13,6 @@ RUN npm install
 # build
 COPY . .
 RUN npx oss-attribution-generator generate-attribution
-RUN npx prisma generate
 RUN npm run build
 
 # run
