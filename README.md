@@ -1,7 +1,7 @@
 # [anthonydepaulmasonryinc.com](https://anthonydepaulmasonryinc.com)
 
 [Demo](https://anthonydepaulmasonryinc.adepaul.dev)  
-[Write Up](https://adepaul.dev/projects/anthonydepaulmasonryinc.com)
+[Write-up](https://adepaul.dev/projects/anthonydepaulmasonryinc.com)
 
 Run dev server: `npm run dev`
 

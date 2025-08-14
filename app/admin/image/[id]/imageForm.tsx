@@ -219,7 +219,6 @@ const ImageForm: React.FC<{
         </label>
 
         <div className="flex justify-center gap-x-4 mt-4">
-          <Link href="/admin" className={twMerge(buttonVariants(), 'w-24 text-center')}>Cancel</Link>
           <Button type="submit" className="w-24 hover:bg-green-500/50">Save</Button>
           <Button
             type="button"
@@ -227,6 +226,7 @@ const ImageForm: React.FC<{
             className="w-24 hover:bg-red-500/50">
             Delete
           </Button>
+          <Link href="/admin" className={twMerge(buttonVariants(), 'w-24 text-center')}>Cancel</Link>
         </div>
 
         {
@@ -264,8 +264,8 @@ const DeleteConfirmationModal: React.FC<{
           <H level="2" className="text-2xl">Are you sure you want to delete this image?</H>
           <p>This action is irreversible.</p>
           <div className="flex gap-x-4">
-            <Button type="button" onClick={closeModal} className="w-24">Cancel</Button>
             <Button type="button" onClick={handleDelete} className="w-24 hover:bg-red-500/50">Delete</Button>
+            <Button type="button" onClick={closeModal} className="w-24">Cancel</Button>
           </div>
           {
             formState && (
