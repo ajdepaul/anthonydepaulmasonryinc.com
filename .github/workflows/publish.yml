@@ -2,7 +2,7 @@ name: Build & Publish
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
     tags: [ "v*" ]
 
 env:
@@ -18,7 +18,7 @@ jobs:
       packages: write
 
     steps:
-      - name: Checkout main
+      - name: Checkout master
         uses: actions/checkout@v4
 
       - name: Login to registry
